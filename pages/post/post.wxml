@@ -1,0 +1,77 @@
+<!--post.wxml-->
+<view class="container">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+
+    <view class="section">
+      <input name="voteTitle" type="text" bindinput="bindVoteTitle" placeholder="{{voteTitle}}" focus="true" />
+      <input name="type" hidden="true" value="{{type}}"/>
+      <input name="name" hidden="true" value="{{name}}"/>
+    </view>
+   
+    <view class="section">
+      <textarea name="desc" bindinput="bindDescInput" placeholder="补充说明(选填)" placeholder-class="desc-holder" />
+      <text class="countInput">{{descCount}}</text>
+    </view>
+
+    <view wx:if="{{type!=2}}" class="section">
+      <block wx:for="{{options}}" wx:for-item="option" wx:key>
+        <view class="option-item del">
+          <view bindtap="delOption" data-index="{{index}}" class="optionIcon">-</view>
+          <view class="optionTips">
+            <input name="option-{{index}}" placeholder="{{option.holder}}" />
+          </view>
+        </view>
+      </block>
+      <view bindtap="addOption" class="option-item add">
+        <view class="optionIcon">+</view>
+        <view class="optionTips">
+          <text>添加选项</text>
+        </view>
+      </view>
+    </view>
+    <view wx:else class="section">
+      <picker name="date" mode="date" value="{{date}}" bindchange="bindDateChange">
+        <view class="picker">
+          分享日期：{{date}}
+        </view>
+      </picker>
+    </view>
+
+    <view class="section">
+      <view class="collapse {{ isShow? 'active':''}}">
+        <view bindtap="moreOption" class="around">
+          <text class="arrow">更多选项(可选)</text>
+        </view>
+        <view wx:if="{{type!=2}}" class="around">
+          <text>是否多选</text>
+          <switch name="multiple"/>
+        </view>
+        <view class="around">
+          <text>发起人</text>
+          <input class="bold" type="text" name="originator" value="{{userInfo.nickName}}" />
+        </view>
+        <view class="around">
+          <text>截止日期</text>
+          <picker name="limitDate" mode="date" value="{{limitDate}}" bindchange="bindLimitDateChange">
+            <view class="picker bold">
+              {{limitDate}}
+            </view>
+          </picker>
+          <picker name="limitTime" mode="time" value="{{limitTime}}" bindchange="bindLimitTimeChange">
+            <view class="picker bold">
+              {{limitTime}}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="fixed-bottom">
+      <view class="btn-area">
+        <button disabled="{{isDisabled}}" formType="reset">重置</button>
+        <button type="primary" disabled="{{isDisabled}}" formType="submit">确定</button>
+      </view>
+    </view>
+
+  </form>
+</view>

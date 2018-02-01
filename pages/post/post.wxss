@@ -1,0 +1,92 @@
+.container{
+  padding-bottom: 80px;
+}
+input[name=voteTitle]{
+  font-size: 18px;
+  padding: 5px 0;
+  font-weight: bold;
+}
+
+
+.desc-holder{
+  color:#aaaaaa;
+}
+.countInput{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 12px;
+  color: #aaaaaa;
+}
+.option-item{
+  display: flex;
+  align-items: center;
+  height: 44px;
+  border-bottom: 1px solid #ddd;
+}
+.option-item+.option-item{
+  margin-top: 8px;
+}
+.option-item:last-child{
+  border: none;
+}
+.optionTips{
+  width: 100%;
+  margin-left: 8px;
+}
+.optionIcon{
+  font-size: 16px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+  margin: 0 8px;
+}
+.add .optionIcon{
+  background: #007aff;
+}
+.add .optionTips{
+  color: #007aff;
+}
+.del .optionIcon{
+  background: #ff4400;
+}
+
+.around{
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.around input{
+  text-align: right;
+}
+.arrow{
+  width: 100%;
+  position: relative;
+}
+.arrow::before{
+  content: "";
+  width: 0;
+  height: 0;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #aaa transparent transparent transparent;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -5px;
+  transform-origin: 10px 5px;
+  transition: all 0.3s;
+}
+.collapse .around:not(:first-child){
+  display: none;
+}
+.collapse.active .around{
+  display: flex;
+}
+.collapse.active .arrow::before{
+  transform: rotateZ(180deg);
+}

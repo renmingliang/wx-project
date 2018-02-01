@@ -1,0 +1,21 @@
+.speech-title{
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.speech-column{
+  font-size: 14px;
+}
+.speech-item{
+  margin-top: 8px;
+}
+.speech-item .picker{
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.speech-item picker text{
+  color: brown;
+  font-weight: bold;
+}

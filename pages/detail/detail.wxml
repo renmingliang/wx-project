@@ -1,0 +1,52 @@
+<!--detail.wxml-->
+<view class="container">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <block >
+      <view class="section">
+        <text class="voteTitle">{{detailVote.voteTitle}}</text>
+      </view>
+      <view class="section">
+        <text class="name-{{detailVote.type}}">
+          <text>[ {{detailVote.name}} /</text>
+          <text wx:if="{{ detailVote.multiple }}"> 多选 ]</text>
+          <text wx:else> 单选 ]</text>
+        </text>
+        <text>{{detailVote.desc}}</text>
+      </view>
+      <view wx:if="{{ detailVote.multiple }}" class="section">
+        <checkbox-group name="options" bindchange="checkSelect">
+          <block wx:for="{{detailVote.options}}" wx:for-item="option" wx:key>
+            <view class="group-item {{ option.checked? 'active':''}}">
+              <label>
+                <checkbox disabled="{{isSubmit}}" checked="{{option.checked}}" value="{{index}}"/>{{option.value}}
+                <text>{{option.count}} 票</text>
+              </label>
+            </view>
+          </block>
+        </checkbox-group>
+      </view>
+      <view wx:else class="section">
+        <radio-group name="options" bindchange="checkSelect">
+          <block wx:for="{{detailVote.options}}" wx:for-item="option" wx:key>
+            <view class="group-item {{ option.checked? 'active':''}}">
+              <label>
+                <radio disabled="{{isSubmit}}" checked="{{option.checked}}" value="{{index}}"/>{{option.value}}
+                <text>{{option.count}} 票</text>
+              </label>
+            </view>
+          </block>
+        </radio-group>
+      </view>
+      
+      <view class="section">
+        <text>截止时间：{{detailVote.limitDate}} {{detailVote.limitTime}}</text>
+      </view>
+    </block>
+    
+    <view hidden="{{isHidden}}" class="fixed-bottom">
+      <view class="btn_area">
+        <button disabled="{{isDisabled}}" type="primary" formType="submit">确定</button>
+      </view>
+    </view>
+  </form>
+</view>

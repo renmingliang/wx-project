@@ -1,0 +1,127 @@
+/**app.wxss**/
+page{
+  background: #faf8fe;
+  min-height: 100%;
+  font-size: 16px;
+}
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 12px;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
+.section{
+  padding: 10px;
+  position: relative;
+  background: #ffffff;
+}
+.section+.section{
+  margin-top: 15px;
+}
+/*底部按钮  */
+.fixed-bottom{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  line-height: 50px;
+}
+.fixed-btn{
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  background: #1aad19;
+}
+.fixed-btn:active{
+  color: rgba(255,255,255,0.6);
+  background: #179b16;
+}
+.fixed-btn:disabled{
+  background: #9ED99D;
+}
+.fixed-txt{
+  width: 36%;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  background: #f7f7f7;
+  text-align: center;
+  color: goldenrod;
+}
+.fixed-txt+button{
+  width: 64%;
+}
+.btn-area{
+  display: flex;
+  justify-content: center;
+}
+.btn-area button{
+  width: 100%;
+  border-radius: 0;
+}
+/*详情展示  */
+.group-item{
+  border: 1px solid #ddd;
+  padding: 5px;
+  margin-top: 10px;
+}
+.group-item.active{
+  border-color: #09bb4f;
+}
+.group-item label{
+  display: block;
+}
+.voteTitle{
+  font-size: 18px;
+  color: #000;
+  font-weight: bold;
+}
+.bold{
+  color: #000;
+  font-size: 18px;
+  font-weight: bold;
+}
+[class^="name-"]{
+  font-weight: bold;
+  font-size: 18px;
+}
+.name-0{
+  color: gold;
+}
+.name-1,.red{
+  color: red;
+}
+.name-2{
+  color: brown;
+}
+/*列表样式  */
+.list {
+  display: flex;
+  flex-direction: column;
+}
+.list navigator+navigator{
+  margin-top: 15px;
+}
+.desc{
+  padding: 10px 0;
+  font-size: 14px;
+  color: #aaaaaa;
+}
+.limit{
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #aaaaaa;
+}
+/*晨会  */
+.rank-head{
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.rank-head text+text{
+  margin-left: 10px;
+}

@@ -1,0 +1,24 @@
+<!--list.wxml-->
+<view class="container list">
+  <block wx:for="{{vote}}" wx:for-item="item" wx:key>
+    <navigator data-order="{{index}}" bindlongpress="deleteVote" url="../{{ item.nextUrl }}?id={{ item.id }}&order={{ index }}">
+      <view class="section">
+        <view class="rank-head">
+          <view>
+            <text class="name-{{item.type}}">[ {{item.name}} ]</text>
+            <text class="bold">{{item.voteTitle}}</text>
+          </view>
+          <view wx:if="{{item.type==2 && item.score}}">
+            <text>总评分：{{item.score}}</text>
+            <text>排名：{{item.rank}}</text>
+          </view>
+        </view>
+        <view class="desc">{{item.desc}}</view>
+        <view class="limit">
+          <text>发起人：{{userInfo.nickName}}</text>
+          <text>截止时间：{{item.limitDate}}</text>
+        </view>
+      </view>
+    </navigator>
+  </block>
+</view>

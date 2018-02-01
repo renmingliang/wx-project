@@ -1,0 +1,41 @@
+<!--detail.wxml-->
+<view class="container">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <view class="rank-head">
+        <view>
+          <text>分享人：</text>
+          <text class="bold">{{detailSpeech.voteTitle}}</text>
+        </view>
+        <view wx:if="{{isSubmit}}">
+          总评分：<text class="bold red">{{detailSpeech.score}}</text>
+        </view>
+      </view>
+      <view class="limit">
+        <text>主题：{{detailSpeech.desc}}</text>
+        <text>分享日期：{{detailSpeech.date}}</text>
+      </view>
+    </view>
+    
+    <view class="speech-column">
+      <view class="section" wx:for="{{standard}}" wx:for-item="item" wx:key>
+        <view class="speech-title">{{item.sTitle}}</view>
+        <view class="speech-item" wx:for="{{item.sItem}}" wx:for-item="it" wx:for-index="ind" wx:key>
+          <text>{{it.sText}} ({{it.sScore}})</text>
+          <picker disabled="{{isSubmit}}" name="core-{{index}}-{{ind}}" bindchange="bindPickerChange" data-index="{{index}}" data-ind="{{ind}}" value="{{it.sIndex}}" range="{{detailScores[index][ind]}}">
+            <view class="picker">
+              当前评分：<text>{{detailScores[index][ind][it.sIndex]}}</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view hidden="{{isHidden}}" class="fixed-bottom">
+      <view class="btn-area">
+        <text class="fixed-txt">总分：{{scores}}</text>
+        <button type="primary" formType="submit">确定</button>
+      </view>
+    </view>
+  </form>
+</view>

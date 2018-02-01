@@ -1,0 +1,27 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/list/list",
+    "pages/detail/detail",
+    "pages/speech/speech",
+    "pages/post/post"
+  ],
+  "window":{
+    "backgroundColor": "#faf8fe",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#007aff",
+    "navigationBarTitleText": "Vote助手",
+    "navigationBarTextStyle":"#ffffff"
+  },
+  "tabBar":{
+    "position": "top",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "发件箱"
+    },{
+      "pagePath": "pages/list/list",
+      "text": "收件箱"
+    }]
+  }
+}
